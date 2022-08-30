@@ -1,0 +1,7 @@
+<h1>Pages#home</h1>
+<% if current_user %>
+  <p> You are the [<%= current_user.role %>] </p>
+  <% if current_user.admin? %>
+    Current user count: <%= User.count %>
+  <% end %>
+<% end %>
