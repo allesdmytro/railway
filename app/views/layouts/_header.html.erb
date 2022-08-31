@@ -4,6 +4,12 @@
 </label>
 <nav class="nav">
   <ul class="nav__list">
+    <li class="nav__item">
+      <%= link_to "Trains", trains_path, class: "nav__link" %>
+    </li>
+    <li class="nav__item">
+      <%= link_to "Stations", stations_path, class: "nav__link" %>
+    </li>
     <% if current_user %>
       <li class="nav__item">
         <p class="nav__text">Hello, <%= current_user.email %>!</p>

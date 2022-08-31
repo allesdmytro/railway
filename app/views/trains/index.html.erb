@@ -1,0 +1,15 @@
+<h1>Trains#index</h1>
+<% if current_user && current_user.admin? %>
+  <%= link_to 'Create new train', new_train_path, class: "button is-primary" %>
+<% end %>
+<% @trains.each do |train| %>
+  <div class='container'>
+  <%= link_to train.id, train %>
+  <br>
+  departure: <%= train.departure %>
+  <br>
+  destignation: <%= train.destignation %>
+  <br>
+  number of seats: <%= train.seats %>
+  </div>
+<% end %>

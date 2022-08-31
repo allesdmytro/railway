@@ -1,0 +1,20 @@
+Train number: <%= @train.id %>
+<br>
+Departure station: <%= @train.departure %>
+<br>
+Destignation station: <%= @train.destignation %>
+<br>
+Number of seats: <%= @train.seats %>
+<br>
+<% if current_user && current_user.admin? %>
+<%= link_to 'Edit train', 
+     edit_train_path(@train), 
+     class: "button is-warning" 
+%>
+<%= link_to "Destroy", 
+      train_path(@train), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  },
+      class: "button is-danger" %>
+<% end %>
