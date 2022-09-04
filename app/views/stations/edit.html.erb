@@ -1,0 +1,31 @@
+<% if current_user && current_user.admin? %>
+    <h1> New Station</h1>
+
+    <%= form_with model: @station do |form| %>
+        <div>
+            <%= form.label :title %>
+            <%= form.text_field :title %>
+        </div>
+
+        <div>
+            <%= form.label :address %>
+            <%= form.text_field :address %>
+        </div>
+
+        <div>
+            <%= form.label :phone %>
+            <%= form.text_field :phone %>
+        </div>
+
+        <div>
+            <%= form.label :info %>
+            <%= form.text_area :info %>
+        </div>
+        
+        <div>
+            <%= form.submit %>
+        </div>
+    <% end %>
+<% else %>
+  Access denied
+<% end %>

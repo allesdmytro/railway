@@ -1,13 +1,25 @@
 <h1>Stations#show</h1>
 <p>Find me in app/views/stations/show.html.erb</p>
-
+<% if current_user && current_user.admin? %>
+<%= link_to 'Edit station', 
+     edit_station_path(@station), 
+     class: "button is-warning" 
+%>
+<%= link_to "Destroy", 
+      station_path(@station), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  },
+      class: "button is-danger" %>
+<% end %>
+<br>
 Station title: <%= @station.title %>
 <br>
 Station address: <%= @station.address %>
 <br>
 Station phone: <%= @station.phone %>
-<br>
-<h1> Trains list <h1>
+<br><br>
+<h1> <b>Trains list:</b> <h1>
 <% @trains.each do |train| %>
 <br>
   Train number: <%= link_to train.id, train %>
