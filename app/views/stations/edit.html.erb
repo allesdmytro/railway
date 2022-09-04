@@ -21,10 +21,24 @@
             <%= form.label :info %>
             <%= form.text_area :info %>
         </div>
-        
+
         <div>
             <%= form.submit %>
         </div>
+        <br>
+
+        <b> Add a train to station: </b>
+        <% @trains.each do |train| %>
+            <% if !(@station.train_ids.include? train.id) %>
+              <br>
+              <%= train.id %>
+              <%= train.departure %>
+              <%= train.destignation %>
+              <%= link_to "Connect", 
+                connect_path(train_id: train.id, station_id: @station.id),
+                class: 'button is-primary' %>
+            <% end %>
+        <% end %>
     <% end %>
 <% else %>
   Access denied

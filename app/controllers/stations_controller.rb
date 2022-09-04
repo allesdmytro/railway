@@ -24,6 +24,7 @@ class StationsController < ApplicationController
 
   def edit
     @station = Station.find(params[:id])
+    @trains = Train.all
   end
 
   def update
@@ -35,6 +36,13 @@ class StationsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def connect
+    @station = Station.find(params[:station_id])
+    @station.trains << Train.find(params[:train_id])
+
+    redirect_to @station
   end
 
   def destroy 
