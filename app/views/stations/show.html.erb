@@ -29,5 +29,11 @@ Station phone: <%= @station.phone %>
   destignation: <%= train.destignation %>
   <br>
   number of seats: <%= train.seats %>
+  <br>
+  <% if current_user && current_user.admin? %>
+  <%= link_to 'Delete from station', 
+              disconnect_path(train_id: train.id, station_id: @station.id),
+              class: 'button is-danger' %>
+  <% end %>
   </div>
 <% end %>

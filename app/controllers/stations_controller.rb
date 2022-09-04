@@ -45,6 +45,14 @@ class StationsController < ApplicationController
     redirect_to @station
   end
 
+  def disconnect
+    @station = Station.find(params[:station_id])
+    @train = Train.find(params[:train_id])
+    @station.trains.delete(@train)
+
+    redirect_to @station
+  end
+
   def destroy 
     @station = Station.find(params[:id])
     @station.destroy
