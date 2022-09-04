@@ -18,3 +18,13 @@ Number of seats: <%= @train.seats %>
                   },
       class: "button is-danger" %>
 <% end %>
+<br>
+Stations list: 
+<% @stations.each do |station| %>
+<br>
+<%= station.title %>
+<br>
+<%= station.address %>
+<br>
+<%= link_to 'Go to station page', station %>
+<% end %>

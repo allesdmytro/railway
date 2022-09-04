@@ -4,7 +4,7 @@
 <% end %>
 <% @trains.each do |train| %>
   <div class='container'>
-  <%= link_to train.id, train %>
+  Train number: <%= link_to train.id, train %>
   <br>
   departure: <%= train.departure %>
   <br>

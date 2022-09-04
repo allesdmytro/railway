@@ -1,2 +1,21 @@
 <h1>Stations#show</h1>
 <p>Find me in app/views/stations/show.html.erb</p>
+
+Station title: <%= @station.title %>
+<br>
+Station address: <%= @station.address %>
+<br>
+Station phone: <%= @station.phone %>
+<br>
+<h1> Trains list <h1>
+<% @trains.each do |train| %>
+<br>
+  Train number: <%= link_to train.id, train %>
+  <br>
+  departure: <%= train.departure %>
+  <br>
+  destignation: <%= train.destignation %>
+  <br>
+  number of seats: <%= train.seats %>
+  </div>
+<% end %>
